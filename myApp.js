@@ -7,4 +7,6 @@ app.get('/', (req, res) => {
   res.sendFile(path);
 });
 
+app.use(express.static(`${__dirname}/public`));
+
 module.exports = app;
