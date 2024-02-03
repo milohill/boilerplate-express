@@ -10,6 +10,14 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use('/now', (req, res, next) => {
+  req.time = new Date().toString();
+}, (req, res) => {
+  res.json({
+    time: req.time,
+  });
+});
+
 app.get('/', (req, res) => {
   const path = `${__dirname}/views/index.html`;
   res.sendFile(path);
