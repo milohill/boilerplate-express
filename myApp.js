@@ -3,7 +3,8 @@ const express = require('express');
 const app = express();
 
 app.get('/', (req, res) => {
-  res.send('Hello Express');
+  const path = `${__dirname}views/index.html`;
+  res.sendFile('/', path);
 });
 
 module.exports = app;
