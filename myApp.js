@@ -4,6 +4,12 @@ const express = require('express');
 
 const app = express();
 
+app.use('/', (req, res, next) => {
+  const log = `${req.method} ${req.path} ${req.ip}`;
+  console.log(log);
+  next();
+});
+
 app.get('/', (req, res) => {
   const path = `${__dirname}/views/index.html`;
   res.sendFile(path);
