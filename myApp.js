@@ -10,6 +10,13 @@ app.use((req, res, next) => {
   next();
 });
 
+app.get('/:word/echo', (req, res) => {
+  const { word } = req.params;
+  res.json({
+    echo: word,
+  });
+});
+
 app.get('/now', (req, res, next) => {
   req.time = new Date().toString();
   next();
