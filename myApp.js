@@ -12,7 +12,7 @@ app.use((req, res, next) => {
 
 app.route('/name').get((req, res) => {
   res.json({
-    name: `${req.query.firstname} ${req.query.lastname}`,
+    name: `${req.query.first} ${req.query.last}`,
   });
 });
 
