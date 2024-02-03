@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 
 const app = express();
@@ -8,8 +9,10 @@ app.get('/', (req, res) => {
 });
 
 app.get('/json', (req, res) => {
+  const cond = process.env.MESSAGE_STYLE;
+  const text = cond ? 'HELLO JSON' : 'Hello json';
   res.json({
-    message: 'Hello json',
+    message: text,
   });
 });
 
