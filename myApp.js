@@ -10,6 +10,12 @@ app.use((req, res, next) => {
   next();
 });
 
+app.route('/name').get((req, res) => {
+  res.json({
+    name: `${req.query.firstname} ${req.query.lastname}`,
+  });
+});
+
 app.get('/:word/echo', (req, res) => {
   const { word } = req.params;
   res.json({
